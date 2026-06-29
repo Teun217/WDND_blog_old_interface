@@ -9,14 +9,16 @@ import MobileError from '../components/MobileError.astro';
 import { items } from '../data/items';
 import '../styles/style.css';
 
-const masterFolders = [...new Set(items.map(i => i.master_folder))];
+const sortedItems = [...items].sort((a, b) => b.date.localeCompare(a.date));
+
+const masterFolders = [...new Set(sortedItems.map(i => i.master_folder))];
 const folderId = (name: string) => name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
 
-const websiteItems = items.filter(i => !!i.iframeSrc);
-const mediaItems = items.filter(i => !!i.mediaUrls?.length);
-const textItems = items.filter(i => !i.iframeSrc && !i.mediaUrls?.length);
+const websiteItems = sortedItems.filter(i => !!i.iframeSrc);
+const mediaItems = sortedItems.filter(i => !!i.mediaUrls?.length);
+const textItems = sortedItems.filter(i => !i.iframeSrc && !i.mediaUrls?.length);
 // note popups only for website/media items that have a note
-const noteItems = items.filter(i => i.note && (i.iframeSrc || i.mediaUrls?.length));
+const noteItems = sortedItems.filter(i => i.note && (i.iframeSrc || i.mediaUrls?.length));
 ---
 <html lang="en">
   <head>
@@ -33,7 +35,7 @@ const noteItems = items.filter(i => i.note && (i.iframeSrc || i.mediaUrls?.lengt
       <ProjectWindow
         windowId={folderId(folder)}
         title={folder}
-        items={items.filter(i => i.master_folder === folder)}
+        items={sortedItems.filter(i => i.master_folder === folder)}
       />
     ))}
     {websiteItems.map(i => (

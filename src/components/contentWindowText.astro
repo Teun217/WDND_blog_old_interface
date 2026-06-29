@@ -1,10 +1,22 @@
 ---
+import { Marked } from 'marked';
+
+const md = new Marked({
+    breaks: true,
+    renderer: {
+        html({ text }: { text: string }) {
+            return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+    }
+});
+
 interface Props {
     id: string;
     title: string;
     note: string;
 }
 const { id, title, note } = Astro.props;
+const renderedNote = md.parse(note) as string;
 ---
 
 <section data-component="content-window-text" id={id} style="display:none">
@@ -12,9 +24,7 @@ const { id, title, note } = Astro.props;
         <button class="close-btn">✕</button>
     </div>
     <h2>{title}</h2>
-    <div class="text-content">
-        <p>{note}</p>
-    </div>
+    <div class="text-content" set:html={renderedNote} />
 </section>
 
 <style>
@@ -29,6 +39,7 @@ const { id, title, note } = Astro.props;
         resize: both;
         min-width: 300px;
         min-height: 200px;
+        max-height: 75dvh;
         width: 28em;
         overflow: hidden;
         display: grid;
@@ -59,10 +70,14 @@ const { id, title, note } = Astro.props;
             inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(255, 255, 255, 0.75);
     }
 
-    p {
-        margin: 0;
+    :global(.text-content p) {
+        margin: 0 0 0.75em;
         overflow-wrap: break-word;
         line-height: 1.5;
+    }
+
+    :global(.text-content p:last-child) {
+        margin-bottom: 0;
     }
 
     .controls {
@@ -118,8 +133,8 @@ const { id, title, note } = Astro.props;
             handle.style.cursor = 'grabbing';
 
             function onMouseMove(e: MouseEvent) {
-                const x = Math.min(Math.max(0, e.clientX - offsetX), window.innerWidth - win.offsetWidth);
-                const y = Math.min(Math.max(0, e.clientY - offsetY), window.innerHeight - win.offsetHeight);
+                const x = Math.min(Math.max(0, e.clientX - offsetX), Math.max(0, window.innerWidth - win.offsetWidth));
+                const y = Math.min(Math.max(0, e.clientY - offsetY), Math.max(0, window.innerHeight - win.offsetHeight));
                 win.style.left = `${x}px`;
                 win.style.top = `${y}px`;
             }

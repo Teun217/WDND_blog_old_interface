@@ -18,8 +18,8 @@ document.querySelectorAll<HTMLElement>('section[data-window-id]').forEach(win =>
         handle.style.cursor = 'grabbing';
 
         function onMouseMove(e: MouseEvent) {
-            const x = Math.min(Math.max(0, e.clientX - offsetX), window.innerWidth - win.offsetWidth);
-            const y = Math.min(Math.max(0, e.clientY - offsetY), window.innerHeight - win.offsetHeight);
+            const x = Math.min(Math.max(0, e.clientX - offsetX), Math.max(0, window.innerWidth - win.offsetWidth));
+            const y = Math.min(Math.max(0, e.clientY - offsetY), Math.max(0, window.innerHeight - win.offsetHeight));
             win.style.left = `${x}px`;
             win.style.top = `${y}px`;
         }

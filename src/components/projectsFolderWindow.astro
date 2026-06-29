@@ -196,10 +196,10 @@ const dynamicCSS = categories.map(cat => {
                 win.style.zIndex = String(++window.__zTop);
                 if (!win.style.left) {
                     const offset = (window.__zTop - 10) * 30;
-                    const x = Math.min(Math.max(0, offset), window.innerWidth - win.offsetWidth);
-                    const y = Math.min(Math.max(0, offset), window.innerHeight - win.offsetHeight);
-                    win.style.left = `${x}px`;
-                    win.style.top = `${y}px`;
+                    const maxX = Math.max(0, window.innerWidth - win.offsetWidth);
+                    const maxY = Math.max(0, window.innerHeight - win.offsetHeight);
+                    win.style.left = `${Math.min(offset, maxX)}px`;
+                    win.style.top = `${Math.min(offset, maxY)}px`;
                 }
             }
         });
