@@ -1,0 +1,230 @@
+---
+---
+
+<div id="mobile-overlay">
+    <div class="win-dialog" id="mobile-error-main">
+        <div class="controls">
+            <button class="x-btn">✕</button>
+        </div>
+        <h2>Fatal Error</h2>
+        <div class="dialog-body">
+            <div class="error-icon">✕</div>
+            <div class="msg">
+                <p>This website cannot be displayed on a mobile device.</p>
+                <p>Please use a desktop computer to continue.</p>
+                <p class="error-code">Error code: 0x000PHONE</p>
+            </div>
+        </div>
+        <div class="dialog-buttons">
+            <button class="ok-btn">OK</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --box-shadow-size: 2px;
+    }
+
+    #mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    #mobile-overlay.visible {
+        display: block;
+    }
+
+    .win-dialog {
+        position: absolute;
+        background-color: rgb(210, 207, 199);
+        min-width: 280px;
+        max-width: 90vw;
+        box-shadow:
+            inset var(--box-shadow-size) var(--box-shadow-size) rgba(255, 255, 255, 0.75),
+            inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(0, 0, 0, 0.75),
+            4px 4px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    #mobile-error-main {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .controls {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 1em;
+        display: flex;
+        gap: 0.5em;
+    }
+
+    .x-btn {
+        height: 1.25em;
+        width: 1.25em;
+        border: none;
+        font-size: 1em;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: inherit;
+        background-color: rgb(193, 193, 193);
+        box-shadow:
+            inset var(--box-shadow-size) var(--box-shadow-size) rgba(255, 255, 255, 0.75),
+            inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(0, 0, 0, 0.75);
+
+        &:hover {
+            background-color: red;
+            color: white;
+        }
+    }
+
+    h2 {
+        margin: 5px;
+        padding: 5px;
+        padding-right: 3em;
+        background-color: rgb(17, 13, 141);
+        color: white;
+    }
+
+    .dialog-body {
+        display: flex;
+        align-items: flex-start;
+        gap: 1em;
+        padding: 1.25em 1.25em 0.75em;
+    }
+
+    .error-icon {
+        flex-shrink: 0;
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .msg {
+        flex: 1;
+        p {
+            margin: 0 0 0.4em;
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .error-code {
+        color: gray;
+        font-size: 0.75em !important;
+        margin-top: 0.75em !important;
+    }
+
+    .dialog-buttons {
+        display: flex;
+        justify-content: center;
+        padding: 0.75em 1.25em 1em;
+        gap: 0.5em;
+    }
+
+    .ok-btn {
+        min-width: 5em;
+        padding: 0.2em 0.75em;
+        font-family: inherit;
+        font-size: 0.85em;
+        cursor: pointer;
+        border: none;
+        background-color: rgb(210, 207, 199);
+        box-shadow:
+            inset var(--box-shadow-size) var(--box-shadow-size) rgba(255, 255, 255, 0.75),
+            inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(0, 0, 0, 0.75);
+
+        &:active {
+            box-shadow:
+                inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(255, 255, 255, 0.75),
+                inset var(--box-shadow-size) var(--box-shadow-size) rgba(0, 0, 0, 0.75);
+        }
+    }
+</style>
+
+<script>
+    const MOBILE_THRESHOLD = 900;
+
+    function isMobile() {
+        return window.innerWidth < MOBILE_THRESHOLD;
+    }
+
+    function spawnExtra() {
+        const overlay = document.getElementById('mobile-overlay')!;
+        const main = document.getElementById('mobile-error-main')!;
+        const padding = 20;
+
+        for (let i = 0; i < 3; i++) {
+            const clone = main.cloneNode(true) as HTMLElement;
+            clone.removeAttribute('id');
+            clone.style.transform = '';
+            clone.style.left = `${padding + Math.random() * Math.max(0, window.innerWidth - 320)}px`;
+            clone.style.top = `${padding + Math.random() * Math.max(0, window.innerHeight - 200)}px`;
+
+            clone.querySelector('.x-btn')!.addEventListener('click', (e) => {
+                e.stopPropagation();
+                clone.remove();
+            });
+            clone.querySelector('.ok-btn')!.addEventListener('click', (e) => {
+                e.stopPropagation();
+                spawnExtra();
+            });
+            clone.addEventListener('click', (e) => e.stopPropagation());
+
+            overlay.appendChild(clone);
+        }
+    }
+
+    const overlay = document.getElementById('mobile-overlay')!;
+    const main = document.getElementById('mobile-error-main')!;
+
+    function show() {
+        overlay.classList.add('visible');
+    }
+
+    function hide() {
+        overlay.classList.remove('visible');
+        overlay.querySelectorAll('.win-dialog:not(#mobile-error-main)').forEach(el => el.remove());
+    }
+
+    if (isMobile()) show();
+
+    window.addEventListener('resize', () => {
+        if (isMobile()) show(); else hide();
+    });
+
+    overlay.addEventListener('click', spawnExtra);
+    main.addEventListener('click', (e) => e.stopPropagation());
+
+    main.querySelector('.x-btn')!.addEventListener('click', (e) => {
+        e.stopPropagation();
+        spawnExtra();
+    });
+
+    main.querySelector('.ok-btn')!.addEventListener('click', (e) => {
+        e.stopPropagation();
+        spawnExtra();
+    });
+</script>

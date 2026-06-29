@@ -5,6 +5,7 @@ import ContentWindowNote from '../components/contentWindowNote.astro';
 import ContentWindowText from '../components/contentWindowText.astro';
 import ProjectFolder from '../components/projectsFolder.astro';
 import ProjectWindow from '../components/projectsFolderWindow.astro';
+import MobileError from '../components/MobileError.astro';
 import { items } from '../data/items';
 import '../styles/style.css';
 
@@ -24,6 +25,7 @@ const noteItems = items.filter(i => i.note && (i.iframeSrc || i.mediaUrls?.lengt
     <title>Teun Dames | Portfolio</title>
   </head>
   <body>
+    <MobileError />
     {masterFolders.map(folder => (
       <ProjectFolder title={folder} windowId={folderId(folder)} />
     ))}
