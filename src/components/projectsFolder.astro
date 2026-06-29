@@ -1,0 +1,72 @@
+---
+interface Props {
+    title: string;
+    windowId: string;
+}
+const { title, windowId } = Astro.props;
+---
+
+<button data-opens-window={windowId}>
+    <img src="/assets/images/folder.png" alt="">
+    <h2>{title}</h2>
+</button>
+<style>
+    img{
+        width: 100%;
+    }
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 0;
+
+        width: 7em;
+        margin: 2em;
+    }
+    h2 {
+        margin: 0 0.5em;
+        max-width: 100%;
+        color: white;
+        text-shadow: 2px 2px 0 black;
+    }
+
+    button:hover::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        background-color: rgba(53, 188, 255, 0.2);
+        width: 120%;
+        height: 120%;
+    }
+
+</style>
+
+<script>
+    declare global { interface Window { __zTop: number } }
+    window.__zTop ??= 10;
+
+    document.querySelectorAll<HTMLButtonElement>('button[data-opens-window]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const windowId = btn.dataset.opensWindow!;
+            const win = document.querySelector<HTMLElement>(`section[data-window-id="${windowId}"]`);
+            if (win) {
+                win.style.display = 'grid';
+                win.style.zIndex = String(++window.__zTop);
+                if (!win.style.left) {
+                    const idx = window.__zTop - 10;
+                    win.style.left = `${Math.max(0, (window.innerWidth - win.offsetWidth) / 2 + idx * 20)}px`;
+                    win.style.top = `${Math.max(0, (window.innerHeight - win.offsetHeight) / 2 + idx * 20)}px`;
+                }
+            }
+        });
+    });
+</script>

@@ -1,0 +1,171 @@
+---
+interface Props {
+    id: string;
+    title: string;
+    iframeSrc: string;
+    expandHref?: string;
+    note?: string;
+}
+const { id, title, iframeSrc, expandHref, note } = Astro.props;
+---
+
+<section data-component="content-window" id={id} style="display:none">
+    <div>
+        {note && <button class="notes-btn">⬒</button>}
+        {expandHref && <a class="expand-btn" href={expandHref} target="_blank">⛶</a>}
+        <button class="close-btn">✕</button>
+    </div>
+    <h2>{title}</h2>
+    <iframe src={iframeSrc} frameborder="0"></iframe>
+</section>
+<style>
+
+
+    :root {
+        --frame-margin: 1em;
+        --iframe-scale: 0.667;
+
+        --box-shadow-size: 2px;
+    }
+
+    section {
+        position: absolute;
+        background-color: rgb(210, 207, 199);
+        resize: both;
+        min-width: 300px;
+        min-height: 300px;
+        width: 40em;
+        aspect-ratio: 4/3;
+        overflow: auto;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        z-index: 1;
+
+        box-shadow:
+            inset var(--box-shadow-size) var(--box-shadow-size) rgba(255, 255, 255, 0.75),  
+            inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(0, 0, 0, 0.75);
+    }
+
+    h2{
+        margin: 5px;
+        padding: 5px;
+        padding-right: 3em;
+
+        background-color: rgb(17, 13, 141);
+        color: white;
+    }
+
+    iframe {
+        width: calc(100% - 2 * var(--frame-margin));
+        height: calc(100% - 2 * var(--frame-margin));
+        margin: var(--frame-margin);
+        padding: 2px;
+        background-color: white;
+
+        box-sizing: border-box;
+        box-shadow:
+            inset var(--box-shadow-size) var(--box-shadow-size) rgba(0, 0, 0, 0.75),  
+            inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(255, 255, 255, 0.75);
+    }
+    div {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 1em;
+        display: flex;
+        gap: 0.5em;
+
+        button, a {
+            height: 1.25em;
+            width: 1.25em;
+            border: none;
+            font-size: 1em;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            box-shadow:
+            inset var(--box-shadow-size) var(--box-shadow-size) rgba(255, 255, 255, 0.75),  
+            inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(0, 0, 0, 0.75);
+
+            background-color: rgb(193, 193, 193);
+
+            &.notes-btn:hover {
+                background-color: rgb(255, 196, 0);
+                color: white;
+            }
+
+            &.expand-btn:hover {
+                background-color: blue;
+                color: white;
+            }
+
+            &.close-btn:hover {
+                background-color: red;
+                color: white;
+            }
+        }
+    }
+
+</style>
+
+<script>
+    declare global { interface Window { __zTop: number } }
+    window.__zTop ??= 10;
+
+    const bringToFront = (el: HTMLElement) => {
+        el.style.zIndex = String(++window.__zTop);
+    };
+
+    document.querySelectorAll<HTMLElement>('section[data-component="content-window"]').forEach(win => {
+        const handle = win.querySelector('h2') as HTMLElement;
+        const closeBtn = win.querySelector('.close-btn') as HTMLElement;
+
+        handle.style.cursor = 'grab';
+
+        win.addEventListener('mousedown', () => bringToFront(win));
+        closeBtn.addEventListener('click', () => { win.style.display = 'none'; });
+
+        win.querySelector('.notes-btn')?.addEventListener('click', () => {
+            const note = document.getElementById(`${win.id}-note`) as HTMLElement;
+            if (!note) return;
+            note.style.display = 'grid';
+            bringToFront(note);
+            if (!note.style.left) {
+                const rect = win.getBoundingClientRect();
+                const x = Math.min(rect.left + 40, window.innerWidth - note.offsetWidth);
+                const y = Math.min(rect.top + 40, window.innerHeight - note.offsetHeight);
+                note.style.left = `${Math.max(0, x)}px`;
+                note.style.top = `${Math.max(0, y)}px`;
+            }
+        });
+
+        handle.addEventListener('mousedown', (e: MouseEvent) => {
+            const rect = win.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const offsetY = e.clientY - rect.top;
+            handle.style.cursor = 'grabbing';
+
+            function onMouseMove(e: MouseEvent) {
+                const x = Math.min(Math.max(0, e.clientX - offsetX), window.innerWidth - win.offsetWidth);
+                const y = Math.min(Math.max(0, e.clientY - offsetY), window.innerHeight - win.offsetHeight);
+                win.style.left = `${x}px`;
+                win.style.top = `${y}px`;
+            }
+
+            function onMouseUp() {
+                handle.style.cursor = 'grab';
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            }
+
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+    });
+</script>

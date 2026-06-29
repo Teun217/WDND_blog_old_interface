@@ -1,0 +1,214 @@
+---
+interface Props {
+    id: string;
+    title: string;
+    mediaUrls: string[];
+    note?: string;
+}
+const { id, title, mediaUrls, note } = Astro.props;
+
+const isVideo = (url: string) => /\.(mp4|webm|mov|ogg)(\?.*)?$/i.test(url);
+const first = mediaUrls[0];
+---
+
+<section data-component="content-window-img" id={id} data-medias={JSON.stringify(mediaUrls)} style="display:none">
+    <div class="controls">
+        {note && <button class="notes-btn">⬒</button>}
+        <a class="expand-btn" href={first} target="_blank">⛶</a>
+        <button class="close-btn">✕</button>
+    </div>
+    <h2>{title}</h2>
+    <div class="media-frame">
+        {isVideo(first)
+            ? <video src={first} controls></video>
+            : <img src={first} alt={title} />
+        }
+    </div>
+    {mediaUrls.length > 1 && (
+        <div class="nav">
+            <button class="prev-btn">Prev.</button>
+            <button class="next-btn">Next</button>
+        </div>
+    )}
+</section>
+<style>
+    :root {
+        --frame-margin: 1em;
+        --box-shadow-size: 2px;
+    }
+
+    section {
+        position: absolute;
+        background-color: rgb(210, 207, 199);
+        resize: horizontal;
+        min-width: 500px;
+        max-height: 90vh;
+        width: 40em;
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: auto auto;
+        z-index: 1;
+
+        box-shadow:
+            inset var(--box-shadow-size) var(--box-shadow-size) rgba(255, 255, 255, 0.75),
+            inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(0, 0, 0, 0.75);
+    }
+
+    h2 {
+        margin: 5px;
+        padding: 5px;
+        padding-right: 3em;
+
+        background-color: rgb(17, 13, 141);
+        color: white;
+    }
+
+    .media-frame {
+        margin: var(--frame-margin);
+        padding: 2px;
+        line-height: 0;
+        max-height: calc(90vh - 8em);
+        overflow-y: auto;
+        box-shadow:
+            inset var(--box-shadow-size) var(--box-shadow-size) rgba(0, 0, 0, 0.75),
+            inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(255, 255, 255, 0.75);
+    }
+
+    img, video {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.25em var(--frame-margin);
+        padding-bottom: var(--frame-margin);
+
+        button {
+            border: none;
+            background: none;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: inherit;
+            &:hover { text-decoration: underline; }
+        }
+    }
+
+    .controls {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 1em;
+        display: flex;
+        gap: 0.5em;
+
+        button, a {
+            height: 1.25em;
+            width: 1.25em;
+            border: none;
+            font-size: 1em;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            background-color: rgb(193, 193, 193);
+            box-shadow:
+                inset var(--box-shadow-size) var(--box-shadow-size) rgba(255, 255, 255, 0.75),
+                inset calc(-1 * var(--box-shadow-size)) calc(-1 * var(--box-shadow-size)) rgba(0, 0, 0, 0.75);
+
+            &.notes-btn:hover {
+                background-color: rgb(255, 196, 0);
+                color: white;
+            }
+            &.expand-btn:hover {
+                background-color: blue;
+                color: white;
+            }
+            &.close-btn:hover {
+                background-color: red;
+                color: white;
+            }
+        }
+    }
+</style>
+
+<script>
+    declare global { interface Window { __zTop: number } }
+    window.__zTop ??= 10;
+
+    const bringToFront = (el: HTMLElement) => { el.style.zIndex = String(++window.__zTop); };
+
+    const isVideo = (url: string) => /\.(mp4|webm|mov|ogg)(\?.*)?$/i.test(url);
+
+    document.querySelectorAll<HTMLElement>('section[data-component="content-window-img"]').forEach(win => {
+        const handle = win.querySelector('h2') as HTMLElement;
+        const closeBtn = win.querySelector('.close-btn') as HTMLElement;
+        const expandBtn = win.querySelector('.expand-btn') as HTMLAnchorElement;
+        const frame = win.querySelector('.media-frame') as HTMLElement;
+        const medias: string[] = JSON.parse(win.dataset.medias!);
+        let index = 0;
+
+        const showMedia = (i: number) => {
+            index = (i + medias.length) % medias.length;
+            const url = medias[index];
+            expandBtn.href = url;
+            if (isVideo(url)) {
+                frame.innerHTML = `<video src="${url}" controls style="display:block;width:100%;height:auto;"></video>`;
+            } else {
+                frame.innerHTML = `<img src="${url}" alt="" style="display:block;width:100%;height:auto;">`;
+            }
+        };
+
+        win.querySelector('.prev-btn')?.addEventListener('click', () => showMedia(index - 1));
+        win.querySelector('.next-btn')?.addEventListener('click', () => showMedia(index + 1));
+
+        handle.style.cursor = 'grab';
+
+        win.addEventListener('mousedown', () => bringToFront(win));
+        closeBtn.addEventListener('click', () => { win.style.display = 'none'; });
+
+        win.querySelector('.notes-btn')?.addEventListener('click', () => {
+            const note = document.getElementById(`${win.id}-note`) as HTMLElement;
+            if (!note) return;
+            note.style.display = 'grid';
+            bringToFront(note);
+            if (!note.style.left) {
+                const rect = win.getBoundingClientRect();
+                const x = Math.min(rect.left + 40, window.innerWidth - note.offsetWidth);
+                const y = Math.min(rect.top + 40, window.innerHeight - note.offsetHeight);
+                note.style.left = `${Math.max(0, x)}px`;
+                note.style.top = `${Math.max(0, y)}px`;
+            }
+        });
+
+        handle.addEventListener('mousedown', (e: MouseEvent) => {
+            const rect = win.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const offsetY = e.clientY - rect.top;
+            handle.style.cursor = 'grabbing';
+
+            function onMouseMove(e: MouseEvent) {
+                const x = Math.min(Math.max(0, e.clientX - offsetX), window.innerWidth - win.offsetWidth);
+                const y = Math.min(Math.max(0, e.clientY - offsetY), window.innerHeight - win.offsetHeight);
+                win.style.left = `${x}px`;
+                win.style.top = `${y}px`;
+            }
+
+            function onMouseUp() {
+                handle.style.cursor = 'grab';
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            }
+
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+    });
+</script>

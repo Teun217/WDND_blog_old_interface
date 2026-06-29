@@ -1,0 +1,50 @@
+---
+import ContentWindowCode from '../components/contentWindowCode.astro';
+import ContentWindowImg from '../components/contentWindowImg.astro';
+import ContentWindowNote from '../components/contentWindowNote.astro';
+import ContentWindowText from '../components/contentWindowText.astro';
+import ProjectFolder from '../components/projectsFolder.astro';
+import ProjectWindow from '../components/projectsFolderWindow.astro';
+import { items } from '../data/items';
+import '../styles/style.css';
+
+const masterFolders = [...new Set(items.map(i => i.master_folder))];
+const folderId = (name: string) => name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+
+const websiteItems = items.filter(i => !!i.iframeSrc);
+const mediaItems = items.filter(i => !!i.mediaUrls?.length);
+const textItems = items.filter(i => !i.iframeSrc && !i.mediaUrls?.length);
+// note popups only for website/media items that have a note
+const noteItems = items.filter(i => i.note && (i.iframeSrc || i.mediaUrls?.length));
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teun Dames | Portfolio</title>
+  </head>
+  <body>
+    {masterFolders.map(folder => (
+      <ProjectFolder title={folder} windowId={folderId(folder)} />
+    ))}
+    {masterFolders.map(folder => (
+      <ProjectWindow
+        windowId={folderId(folder)}
+        title={folder}
+        items={items.filter(i => i.master_folder === folder)}
+      />
+    ))}
+    {websiteItems.map(i => (
+      <ContentWindowCode id={i.id} title={i.title} iframeSrc={i.iframeSrc!} expandHref={i.expandHref} note={i.note} />
+    ))}
+    {mediaItems.map(i => (
+      <ContentWindowImg id={i.id} title={i.title} mediaUrls={i.mediaUrls!} note={i.note} />
+    ))}
+    {textItems.map(i => (
+      <ContentWindowText id={i.id} title={i.title} note={i.note ?? ''} />
+    ))}
+    {noteItems.map(i => (
+      <ContentWindowNote id={i.id} title={i.title} note={i.note!} />
+    ))}
+  </body>
+</html>
