@@ -41,7 +41,7 @@ const first = mediaUrls[0];
         position: absolute;
         background-color: rgb(210, 207, 199);
         resize: horizontal;
-        min-width: 500px;
+        min-width: 450px;
         max-height: 90vh;
         width: 40em;
         overflow: hidden;
@@ -193,6 +193,7 @@ const first = mediaUrls[0];
             const offsetX = e.clientX - rect.left;
             const offsetY = e.clientY - rect.top;
             handle.style.cursor = 'grabbing';
+            document.body.style.userSelect = 'none';
 
             function onMouseMove(e: MouseEvent) {
                 const x = Math.min(Math.max(0, e.clientX - offsetX), window.innerWidth - win.offsetWidth);
@@ -203,6 +204,7 @@ const first = mediaUrls[0];
 
             function onMouseUp() {
                 handle.style.cursor = 'grab';
+                document.body.style.userSelect = '';
                 document.removeEventListener('mousemove', onMouseMove);
                 document.removeEventListener('mouseup', onMouseUp);
             }

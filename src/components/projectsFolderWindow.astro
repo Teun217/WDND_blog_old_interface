@@ -51,10 +51,11 @@ const dynamicCSS = categories.map(cat => {
         position: absolute;
         background-color: rgb(210, 207, 199);
         resize: both;
-        min-width: 500px;
-        min-height: 300px;
+        min-width: 450px;
+        min-height: min-content;
         width: 30em;
-        overflow: auto;
+        height: 300px;
+        overflow: hidden;
         display: grid;
         grid-template-rows: auto 1fr;
         z-index: 1;

@@ -16,6 +16,7 @@ document.querySelectorAll<HTMLElement>('section[data-window-id]').forEach(win =>
         const offsetY = e.clientY - rect.top;
 
         handle.style.cursor = 'grabbing';
+        document.body.style.userSelect = 'none';
 
         function onMouseMove(e: MouseEvent) {
             const x = Math.min(Math.max(0, e.clientX - offsetX), Math.max(0, window.innerWidth - win.offsetWidth));
@@ -26,6 +27,7 @@ document.querySelectorAll<HTMLElement>('section[data-window-id]').forEach(win =>
 
         function onMouseUp() {
             handle.style.cursor = 'grab';
+            document.body.style.userSelect = '';
             document.removeEventListener('mousemove', onMouseMove);
             document.removeEventListener('mouseup', onMouseUp);
         }

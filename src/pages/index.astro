@@ -9,7 +9,8 @@ import MobileError from '../components/MobileError.astro';
 import { items } from '../data/items';
 import '../styles/style.css';
 
-const sortedItems = [...items].sort((a, b) => b.date.localeCompare(a.date));
+const parseDate = (d: string) => { const [dd, mm, yyyy] = d.split('-'); return new Date(+yyyy, +mm - 1, +dd).getTime(); };
+const sortedItems = [...items].sort((a, b) => parseDate(b.date) - parseDate(a.date));
 
 const masterFolders = [...new Set(sortedItems.map(i => i.master_folder))];
 const folderId = (name: string) => name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
@@ -25,6 +26,7 @@ const noteItems = sortedItems.filter(i => i.note && (i.iframeSrc || i.mediaUrls?
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teun Dames | Portfolio</title>
+    <link rel="icon" type="image/png" href="/assets/images/webIcon.png" />
   </head>
   <body>
     <MobileError />

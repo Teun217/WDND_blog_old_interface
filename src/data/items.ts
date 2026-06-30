@@ -15,7 +15,7 @@ export const items: Item[] = [
     id: `Sprint_0`,
     title: `Sprint_0`,
     category: `projects`,
-    date: `2026-02-13`,
+    date: `17-02-2026`,
     master_folder: `WD&D documents`,
     iframeSrc: `https://teun217.github.io/sprint_0/`,
     expandHref: `https://github.com/Teun217/sprint_0`,
@@ -31,7 +31,7 @@ Heel trots ben ik er niet op maar een goede baseline was het wel.`,
     id: `CSSTTR_blobbify`,
     title: `Blobbify`,
     category: `projects`,
-    date: `2025-01-01`,
+    date: `16-03-2026`,
     master_folder: `WD&D documents`,
     iframeSrc: `https://teun217.github.io/Blobbify_final/`,
     expandHref: `https://github.com/Teun217/Blobbify_final`,
@@ -45,7 +45,7 @@ Ik heb zelfs genoten van een volle dag zitten aan het troubleshooten van het gen
     id: `API_records`,
     title: `RecordCollection`,
     category: `projects`,
-    date: `2025-01-01`,
+    date: `07-05-2026`,
     master_folder: `WD&D documents`,
     iframeSrc: `https://api-records-kkpa.onrender.com/`,
     expandHref: `https://github.com/Teun217/API-records`,
@@ -59,7 +59,7 @@ Wel ben ik blij dat ik het concept wat ik had aan het begin van de minor, volled
     id: `HCD_screenreader`,
     title: `Screenreader`,
     category: `projects`,
-    date: `2025-01-01`,
+    date: `07-05-2026`,
     master_folder: `WD&D documents`,
     iframeSrc: `https://teun217.github.io/HCD_ScreenReader/`,
     expandHref: `https://github.com/Teun217/HCD_ScreenReader`,
@@ -71,7 +71,7 @@ Een goed voorbeeld is het kleuren van de achtergrond van de tekstlijn waar de ge
     id: `BT_nsBelasting`,
     title: `NSBelasting`,
     category: `projects`,
-    date: `2025-01-01`,
+    date: `16-03-2026`,
     master_folder: `WD&D documents`,
     iframeSrc: `https://teun217.github.io/NSBelastingSchoolopdracht/`,
     expandHref: `https://github.com/Teun217/NSBelastingSchoolopdracht`,
@@ -83,7 +83,7 @@ Voor dit vak vind ik dat ik creatief ben geweest met feedback geven aan de user 
     id: `Hackathon_blackhole`,
     title: `Hackathon_blackhole (heavy)`,
     category: `projects`,
-    date: `2025-01-01`,
+    date: `26-03-2026`,
     master_folder: `WD&D documents`,
     iframeSrc: `https://jellehotting.github.io/Hackathon/`,
     expandHref: `https://github.com/JelleHotting/Hackathon`,
@@ -93,7 +93,7 @@ Voor dit vak vind ik dat ik creatief ben geweest met feedback geven aan de user 
     id: `Meesterproef`,
     title: `Glossary_meesterproef`,
     category: `projects`,
-    date: `2026-06-19`,
+    date: `19-06-2026`,
     master_folder: `WD&D documents`,
     iframeSrc: `https://glossary-inter-facing-the-hybrid-city.onrender.com/`,
     expandHref: `https://github.com/ginchanah/Meesterproef`,
@@ -104,7 +104,7 @@ Voor dit vak vind ik dat ik creatief ben geweest met feedback geven aan de user 
     id: `WN_kilian`,
     title: `Kilian_Valkhof`,
     category: `weekly_nerd`,
-    date: `2026-02-04`,
+    date: `04-02-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -128,7 +128,7 @@ Tot slot liet hij een paar verse browser-features zien, zoals field-sizing: cont
     id: `WN_ppk`,
     title: `Peter-Paul_Koch`,
     category: `weekly_nerd`,
-    date: `2026-02-19`,
+    date: `19-02-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -152,7 +152,7 @@ Het was voor mij een soort mind-fuck dat Koch toch redelijk aan de voorhoede lij
     id: `WN_nils`,
     title: `Nils_Binder`,
     category: `weekly_nerd`,
-    date: `2026-03-04`,
+    date: `04-03-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -176,7 +176,7 @@ Het laatste vond ik super creatief en wil ik graag gebruiken: een lange strip me
     id: `WN_robbert`,
     title: `Robbert_Broersma_&_Yolijn_van_der_Kolk`,
     category: `weekly_nerd`,
-    date: `2026-03-12`,
+    date: `12-03-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -208,7 +208,7 @@ Een super nuttig hoorcollege, ik vond het alleen jammer dat dit hoorcollege werd
     id: `WN_rosa`,
     title: `Rosa`,
     category: `weekly_nerd`,
-    date: `2026-04-02`,
+    date: `02-04-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -232,7 +232,7 @@ Ik vond Rosa super cool vertellen over super interessante dingen! Ik vind het le
     id: `WN_johan`,
     title: `Johan_Huijkman`,
     category: `weekly_nerd`,
-    date: `2026-04-09`,
+    date: `09-04-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -260,7 +260,7 @@ Testen was hieruit de grootste boodschap. Ik vond dat hij dit goed overbracht. J
     id: `WN_sanne`,
     title: `Sanne_Peters`,
     category: `weekly_nerd`,
-    date: `2026-04-20`,
+    date: `20-04-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -290,7 +290,7 @@ Ik vond de presentatie van Sanne Peters interessant. Ze leek heel zenuwachtig, w
     id: `WN_Q42`,
     title: `Q42`,
     category: `weekly_nerd`,
-    date: `2026-05-28`,
+    date: `28-05-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -317,7 +317,7 @@ De grote vraag bij toegankelijkheid was hoe je het hoger op de prioriteitenlijst
     id: `WN_Voorhoede`,
     title: `de_Voorhoede`,
     category: `weekly_nerd`,
-    date: `2026-06-04`,
+    date: `04-06-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -341,7 +341,7 @@ Technisch komt er een hoop bij kijken. Service workers vormen een tussenlaag voo
     id: `WN_HansDeZwart`,
     title: `Hans_de_Zwart`,
     category: `weekly_nerd`,
-    date: `2026-05-21`,
+    date: `21-05-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -369,7 +369,7 @@ Tot slot kwam Privacy by Design langs, met een verwijzing naar het boek Privacy 
     id: `WN_LeonieWatson`,
     title: `Leonie_Watson`,
     category: `weekly_nerd`,
-    date: `2026-06-10`,
+    date: `10-06-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -394,12 +394,12 @@ Het web dat zij wil is er dan ook één dat geen AI nodig heeft om te compensere
     id: `WN_Sidt`,
     title: `Cyd_Stumpel`,
     category: `weekly_nerd`,
-    date: `2026-06-10`,
+    date: `10-06-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
     note: `
-Een site is vrij makkelijk te kopiëren door anderen.
+Een site is vrij makkelijk te kopiëren door anderen :(
 
 ## Progressive enhancement
 
@@ -417,7 +417,7 @@ HTML komt eerst. Er zijn ingebouwde manieren om informatie te tonen en te verber
     id: `WN_SaraJoy`,
     title: `Sara_Joy`,
     category: `weekly_nerd`,
-    date: `2026-06-10`,
+    date: `10-06-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -445,7 +445,7 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     id: `LD_s0_css`,
     title: `"Goed" in CSS worden`,
     category: `leerdoelen_sprint0`,
-    date: `2026-05-12`,
+    date: `12-05-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -455,7 +455,7 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     id: `LD_s0_creatief`,
     title: `Creatievere websites`,
     category: `leerdoelen_sprint0`,
-    date: `2026-05-12`,
+    date: `12-05-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -465,7 +465,7 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     id: `LD_s0_schetsen`,
     title: `Schetsmatig leren ontwerpen`,
     category: `leerdoelen_sprint0`,
-    date: `2026-05-12`,
+    date: `12-05-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -475,7 +475,7 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     id: `LD_m_procesverslag`,
     title: `Procesverslag beter bijhouden`,
     category: `leerdoelen_meesterschap`,
-    date: `2026-06-23`,
+    date: `23-06-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -485,7 +485,7 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     id: `LD_m_uitstellen`,
     title: `To-Do's en uitstellen verminderen`,
     category: `leerdoelen_meesterschap`,
-    date: `2026-06-23`,
+    date: `23-06-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -495,7 +495,7 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     id: `LD_m_js`,
     title: `JS verbeteren`,
     category: `leerdoelen_meesterschap`,
-    date: `2026-06-23`,
+    date: `23-06-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
@@ -505,10 +505,85 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     id: `LD_m_lol`,
     title: `Weer iets meer lol hebben met code`,
     category: `leerdoelen_meesterschap`,
-    date: `2026-06-23`,
+    date: `23-06-2026`,
     master_folder: `WD&D texts`,
     iframeSrc: ``,
     expandHref: ``,
     note: `Het laatste blok is mij heel slecht gevallen en ik heb niet zo veel energie in de code kunnen steken als ik zou willen.`,
+  },
+  {
+    id: `Ref_tussentijds`,
+    title: `Tussentijdse_reflectie`,
+    category: `reflecties`,
+    date: `13-05-2026`,
+    master_folder: `WD&D texts`,
+    iframeSrc: ``,
+    expandHref: ``,
+    note: `
+## Leerdoel 1: "Goed" in CSS worden
+
+Dit doel is wat mij betreft het duidelijkst gehaald. Bij CSS to the Rescue merkte ik dat het onderwerp me echt interesseerde en dat ik er steeds verder aan wou werken. Na school ging ik moeiteloos nog tot in de nacht door. Dat is precies de energie waar ik op hoopte. Ik ben vloeiender geworden in het schrijven van CSS. Ook heb ik met Nils ontdekt hoe leuk het eigenlijk kan zijn om tegen een probleem aan te lopen. Ik merkte dat Nils erg goed was in het isoleren van problemen en zo de bug te vinden en op te lossen, dat zou ik ook graag willen leren.
+
+## Leerdoel 2: Creatievere websites
+
+Dit komt vooral terug in mijn HCD project. Voor Rogier moest de tekst zo groot worden dat een normale website er vrijwel onbruikbaar van wordt. De site is eigenlijk exclusief met toetsenbord combinaties te besturen en de pagina schuift heen en weer op basis van waar hij op focust. Dat gaat flink tegen de conventies in, maar het werkte voor hem. Het vak heeft me laten zien dat echt contact met een client het ontwerp ten goede komt, zeker bij toegankelijkheid.
+
+## Leerdoel 3: Schetsmatig leren ontwerpen voordat ik een idee meteen ga uitwerken
+
+Dit doel heb ik het minst aangeraakt. Bij CSS to the Rescue viel ik juist een rabbithole in en verloor ik de opdracht een beetje uit het oog, en bij HCD moest ik nog wennen aan het idee dat het eindproduct een prototype is en geen site die "af" is. Hier valt voor mij dus nog winst te halen. Hier en daar heb ik een schetsje gemaakt maar ik mag er van mezelf echt wel op letten dit wat consistenter te doen.
+
+## Wat ik verder heb geleerd
+
+Ik heb een heel nieuw concept geleerd met svg filters en geëxperimenteerd met blend modes. Ook heb ik geleerd hoe je met alleen CSS een "random" value genereert en hoe je die juist niet kan gebruiken om een animatie aan te sturen :( en hoe je CSS states in forms gebruikt om functionaliteit toe te passen. Bij Browsertech kreeg ik een echte waardering voor formulieren: hoe je een soort input trappetje maakt (antwoord ja? Ga door naar de volgende vraag, antwoord nee? Skip de volgende vraag), hoe je met attributes inputs als radiobuttons koppelt, en wat een webpagina nou een webpagina maakt ten opzichte van papier. Bij de API merkte ik vooruitgang door mijn eindresultaat te vergelijken met de eerste week van de minor, toen ik hetzelfde probeerde te maken. Ook zijn we met API natuurlijk begonnen met Astro. Met de componenten gaat een nieuwe wereld voor mij open. Ik ben dan ook benieuwd waar ik het in de toekomst voor ga gebruiken.
+
+## Wat nog beter kan
+
+JavaScript blijft mijn grootste worsteling. Ik raak er snel door geïntimideerd en denk dat ik de basis nog niet helemaal begrijp, waardoor alles wat ik daarboven doe ongefundeerd voelt. Dit is zeker iets waar ik beter in wil worden. Daarnaast laat ik het bijhouden van mijn proces en tussentijdse reflecties steeds liggen, omdat ik zodra ik begin meteen aan de code ga. Ook blijf ik vaak te lang aan kleine dingetjes sleutelen terwijl ik beter eerst de basis op niveau kan krijgen. Tot slot heb ik gemerkt dat gaten in de periode, zoals SmashingCon en de vakantie, me snel mijn ritme en overzicht ontnemen.
+    `,
+  },
+  {
+    id: `Ref_eind`,
+    title: `Eind_reflectie`,
+    category: `reflecties`,
+    date: `30-06-2026`,
+    master_folder: `WD&D texts`,
+    iframeSrc: ``,
+    expandHref: ``,
+    note: `
+Het laatste project van de minor. Ik mocht in een team voor een opdrachtgever, Marjolijn, een glossary website maken waarin elke term een eigen animatie kreeg. Ik was super enthousiast toen ik hoorde dat ik deze opdracht mocht doen, en bij de kickoff voelde het echt als kunst maken met code. Dat is precies de manier van coderen die ik het meest boeiend vind: nieuwe en unieke dingen maken in plaats van voor de tienduizendste keer dezelfde interface. Ik ben erg blij met het eindresultaat, en er is zelfs een stage bij Marjolijn uit voortgekomen.
+
+Voor dit project had ik een aantal nieuwe leerdoelen opgesteld.
+
+## Procesverslag beter bijhouden
+
+Ik heb mijn best gedaan om mijn proces beter bij te houden. Het hielp om in codepennetjes te werken en zo automatisch testjes op te slaan. Die kon ik later gebruiken in het procesverslag en om überhaupt terug te kijken naar hoe ik dingen ook alweer deed. Wel merkte ik dat het noteren van mijn gedachtegangen tijdens het maken er nog steeds vaak bij in schoot. Vanwege een aantal dingen buiten school om was ik sneller vermoeid en daardoor warriger, waardoor het door de minor heen lastiger werd om het overzicht te behouden en alles goed te noteren. Ik heb een aantal keer in Notion geschreven tijdens het werken, maar dit echt consistent doen blijft heel lastig voor mij. Tegen het einde had ik een gesprek met een van de leraren die voorstelde om voice notes op te nemen, en dat ga ik de volgende keren zeker proberen. Al met al heb ik meer van mijn tussentijdse werk opgeslagen en beschreven en kon ik mijn persoonlijke productbio vollediger schrijven. Dat zie ik zeker als een vooruitgang op eerdere projecten.
+
+## Minder uitstellen en beter plannen
+
+Trello was handig om te zien wat er nog te gebeuren stond, en de communicatie binnen het team was goed. We bespraken duidelijk wat ieder ging doen en overlegden wat van belang was. Ik heb heel erg de neiging om gewoon door te gaan met code schrijven zonder volledige informatie te hebben, dus het hielp om eerst met het team te overleggen voordat ik iets ging doen. Zo was er context of iets wel prioriteit had. Dat hielp om overzicht te bewaren en mijn uitstelgedrag te verminderen, want bij mij ligt uitstellen soms simpelweg aan het niet weten waar ik moet beginnen. Toch merkte ik dat ik me ondanks die structuur soms nog steeds overwhelmed voelde en het overzicht alsnog kwijtraakte. Er is dus vooruitgang, maar ook nog genoeg te halen. Dit is iets waar ik al een tijd tegen aan loop en aan wil blijven werken, en mijn korte stage is daarvoor een mooie kans.
+
+## JavaScript verbeteren
+
+Ik heb best wel een stukje meer JS geleerd. Toch heb ik vaak het gevoel dat ik de basis nog gewoon mis. Ik werd overweldigd door alles wat kan, had moeite met het lezen van JS en het gevoel dat ik allerlei dingen moest weten die ik niet wist, laat staan dat ik het zelf kon schrijven. De workshops van Jad waren super fijn. Naast het leren van nieuwe dingen was het gewoon prettig om met een docent de JS regel voor regel door te nemen, en ik ben blij dat ik die code nog kan terugkijken. De code voor de term Invisible was daadwerkelijk leuk om te doen: daarbij sloeg ik sommetjes op in variabelen en gebruikte ik die weer voor de volgende som, zodat ik percentueel het midden kon berekenen. Ook het met .map loopen over de onderdelen in een array kwam terug, en ik zag opnieuw hoe nuttig JS kan zijn, bijvoorbeeld met de span-split functie die we meermaals in de animaties hebben gebruikt. Die ervaringen hielpen om JavaScript iets minder intimiderend te vinden. Het blijft iets waar ik zeker meer over wil leren, hoe intimiderend ook, maar dit project heeft daarin geholpen.
+
+## Weer meer lol hebben met code
+
+Hiervoor waren de animaties eigenlijk perfect. Ik vond het hartstikke leuk om met CSS en JS de animaties te maken. Door de vermoeidheid kon ik niet zo productief zijn als ik wilde, en daar heb ik veel om lopen stressen, wat de lol er wel een beetje van af haalde. Maar ik heb zeker momentjes van passie gevoeld waarin ik iets ontdekte wat mij boeide en waar ik intrinsieke motivatie voor voelde om het uit te zoeken. De super ellipse, ook al was die geen deel van de glossary terms, vond ik daarvan super interessant.
+
+## En de oude leerdoelen
+
+Mijn oude doelen kwamen ook terug. Het creatiever en plezieriger worden met CSS liep gewoon door: mijn grid kennis was weggezakt en het was fijn om die weer op te halen, ik ben blij met de hover animatie en de subsequent child selector, met de radial-gradient die ik met Sanne maakte, en met de super ellipse als corner shape functie die je kan animeren. Het minder standaard bouwen kwam terug in het hele karakter van het project, met een unieke animatie per term en een homepage waar ik met :has() de categorienavigatie heb opgelost. En het sneller schetsen en prototypen heb ik in de praktijk gebracht door per term concepten te schetsen, zoals bij System met de conveyor, traffic en rotate varianten, en die in codepens uit te werken. Toch mag ik er nog steeds op letten dat consistenter te doen.
+
+## Conclusie
+
+Ik vond het een superleuk project, ondanks de struggles. Ik liep tegen dezelfde dingen aan waar ik al heel lang tegen aan loop: het overzicht houden vind ik gewoon heel lastig, en daaruit volgt opnieuw moeite met het procesverslag bijhouden, minder uitstellen en plannen. Toch denk ik dat ik stapjes heb gemaakt de goede richting op. In het vervolg hoop ik beter te leren omgaan met de chaos in mijn hoofd, en de stage die uit dit project is ontstaan is daar een mooie kans voor.
+
+
+## Terugblik
+Ik ben zo blij dat ik deze minor heb gekozen. Het was zwaar, het was lastig maar het was ook leuk en vooral super leerzaam. Ik heb het gevoel dat ik steviger in de studie sta en voor de toekomst wat zekerder het werkveld betreed.
+De projecten die ik heb gemaakt zijn soms wat janky, maar ik ben er blij mee.
+Ook ben ik super enthousiast over de (mogelijke) stages die uit deze minor zijn gekomen. Ik ben blij binnen dit werkveld door te mogen leren.
+
+    `,
   },
 ];
