@@ -32,11 +32,6 @@ const first = mediaUrls[0];
     )}
 </section>
 <style>
-    :root {
-        --frame-margin: 1em;
-        --box-shadow-size: 2px;
-    }
-
     section {
         position: absolute;
         background-color: rgb(210, 207, 199);
@@ -140,10 +135,7 @@ const first = mediaUrls[0];
 </style>
 
 <script>
-    declare global { interface Window { __zTop: number } }
-    window.__zTop ??= 10;
-
-    const bringToFront = (el: HTMLElement) => { el.style.zIndex = String(++window.__zTop); };
+    import { bringToFront, makeDraggable, openNoteWindow } from '../scripts/windowUtils';
 
     const isVideo = (url: string) => /\.(mp4|webm|mov|ogg)(\?.*)?$/i.test(url);
 
@@ -169,48 +161,10 @@ const first = mediaUrls[0];
         win.querySelector('.prev-btn')?.addEventListener('click', () => showMedia(index - 1));
         win.querySelector('.next-btn')?.addEventListener('click', () => showMedia(index + 1));
 
-        handle.style.cursor = 'grab';
-
         win.addEventListener('mousedown', () => bringToFront(win));
         closeBtn.addEventListener('click', () => { win.style.display = 'none'; });
+        win.querySelector('.notes-btn')?.addEventListener('click', () => openNoteWindow(win));
 
-        win.querySelector('.notes-btn')?.addEventListener('click', () => {
-            const note = document.getElementById(`${win.id}-note`) as HTMLElement;
-            if (!note) return;
-            note.style.display = 'grid';
-            bringToFront(note);
-            if (!note.style.left) {
-                const rect = win.getBoundingClientRect();
-                const x = Math.min(rect.left + 40, window.innerWidth - note.offsetWidth);
-                const y = Math.min(rect.top + 40, window.innerHeight - note.offsetHeight);
-                note.style.left = `${Math.max(0, x)}px`;
-                note.style.top = `${Math.max(0, y)}px`;
-            }
-        });
-
-        handle.addEventListener('mousedown', (e: MouseEvent) => {
-            const rect = win.getBoundingClientRect();
-            const offsetX = e.clientX - rect.left;
-            const offsetY = e.clientY - rect.top;
-            handle.style.cursor = 'grabbing';
-            document.body.style.userSelect = 'none';
-
-            function onMouseMove(e: MouseEvent) {
-                const x = Math.min(Math.max(0, e.clientX - offsetX), window.innerWidth - win.offsetWidth);
-                const y = Math.min(Math.max(0, e.clientY - offsetY), window.innerHeight - win.offsetHeight);
-                win.style.left = `${x}px`;
-                win.style.top = `${y}px`;
-            }
-
-            function onMouseUp() {
-                handle.style.cursor = 'grab';
-                document.body.style.userSelect = '';
-                document.removeEventListener('mousemove', onMouseMove);
-                document.removeEventListener('mouseup', onMouseUp);
-            }
-
-            document.addEventListener('mousemove', onMouseMove);
-            document.addEventListener('mouseup', onMouseUp);
-        });
+        makeDraggable(win, handle);
     });
 </script>

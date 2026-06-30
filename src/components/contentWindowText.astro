@@ -1,14 +1,5 @@
 ---
-import { Marked } from 'marked';
-
-const md = new Marked({
-    breaks: true,
-    renderer: {
-        html({ text }: { text: string }) {
-            return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        }
-    }
-});
+import { md } from '../utils/markdown';
 
 interface Props {
     id: string;
@@ -28,11 +19,6 @@ const renderedNote = md.parse(note) as string;
 </section>
 
 <style>
-    :root {
-        --box-shadow-size: 2px;
-        --frame-margin: 1em;
-    }
-
     section {
         position: absolute;
         background-color: rgb(210, 207, 199);
@@ -115,41 +101,15 @@ const renderedNote = md.parse(note) as string;
 </style>
 
 <script>
-    declare global { interface Window { __zTop: number } }
-    window.__zTop ??= 10;
+    import { bringToFront, makeDraggable } from '../scripts/windowUtils';
 
     document.querySelectorAll<HTMLElement>('section[data-component="content-window-text"]').forEach(win => {
         const handle = win.querySelector('h2') as HTMLElement;
         const closeBtn = win.querySelector('.close-btn') as HTMLElement;
 
-        handle.style.cursor = 'grab';
-
-        win.addEventListener('mousedown', () => { win.style.zIndex = String(++window.__zTop); });
+        win.addEventListener('mousedown', () => bringToFront(win));
         closeBtn.addEventListener('click', () => { win.style.display = 'none'; });
 
-        handle.addEventListener('mousedown', (e: MouseEvent) => {
-            const rect = win.getBoundingClientRect();
-            const offsetX = e.clientX - rect.left;
-            const offsetY = e.clientY - rect.top;
-            handle.style.cursor = 'grabbing';
-            document.body.style.userSelect = 'none';
-
-            function onMouseMove(e: MouseEvent) {
-                const x = Math.min(Math.max(0, e.clientX - offsetX), Math.max(0, window.innerWidth - win.offsetWidth));
-                const y = Math.min(Math.max(0, e.clientY - offsetY), Math.max(0, window.innerHeight - win.offsetHeight));
-                win.style.left = `${x}px`;
-                win.style.top = `${y}px`;
-            }
-
-            function onMouseUp() {
-                handle.style.cursor = 'grab';
-                document.body.style.userSelect = '';
-                document.removeEventListener('mousemove', onMouseMove);
-                document.removeEventListener('mouseup', onMouseUp);
-            }
-
-            document.addEventListener('mousemove', onMouseMove);
-            document.addEventListener('mouseup', onMouseUp);
-        });
+        makeDraggable(win, handle);
     });
 </script>

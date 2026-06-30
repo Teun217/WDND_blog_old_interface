@@ -106,8 +106,6 @@ Voor dit vak vind ik dat ik creatief ben geweest met feedback geven aan de user 
     category: `weekly_nerd`,
     date: `04-02-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `## The Rule of Least Power
 
 Kilian Valkhof had het over The Rule of Least Power: gebruik altijd de minst krachtige taal die geschikt is voor wat je wil bereiken. Dus HTML boven CSS boven JavaScript.
@@ -130,8 +128,6 @@ Tot slot liet hij een paar verse browser-features zien, zoals field-sizing: cont
     category: `weekly_nerd`,
     date: `19-02-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `## Wat is een browser?
 
 Peter-Paul Koch legde uit wat browsers eigenlijk zijn en hoe ze werken. Het internet is basically een manier om gegevens van A naar B te sturen, het web is specifieker: een webpagina van A naar B. Browsers bestaan uit losse onderdelen die niets van elkaar weten: een rendering engine voor HTML en CSS, een JavaScript engine, en een DOM en AOM die de pagina leesbaar maken voor respectievelijk JavaScript en screenreaders.
@@ -154,8 +150,6 @@ Het was voor mij een soort mind-fuck dat Koch toch redelijk aan de voorhoede lij
     category: `weekly_nerd`,
     date: `04-03-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `## De vroegere dagen van webdesign
 
 Nils had het over de vroegere dagen van webdesign, wat ik net zoals bij Peter-Paul leuk vond om over te horen. Wederom om een besef te krijgen van hoe snel dit werkveld evolueert.
@@ -178,8 +172,6 @@ Het laatste vond ik super creatief en wil ik graag gebruiken: een lange strip me
     category: `weekly_nerd`,
     date: `12-03-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `## Goede formulieren bouwen
 
 Robbert Broersma werkt aan het NL Design System en zijn presentatie ging over hoe je goede formulieren bouwt niet alleen visueel, maar ook toegankelijk en gebruiksvriendelijk.
@@ -210,8 +202,6 @@ Een super nuttig hoorcollege, ik vond het alleen jammer dat dit hoorcollege werd
     category: `weekly_nerd`,
     date: `02-04-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `## Hacken en planned obsolescence
 
 De presentatie ging over hacken in de brede zin: dingen op een alternatieve manier doen, zelf maken en creatief omgaan met wat je hebt. Een interessant concept dat voorbij kwam was planned obsolescence: fabrikanten maken producten bewust zo dat je er minder lang bij kan. Zodra de software stopt met werken is de hardware ook meteen nutteloos.
@@ -234,8 +224,6 @@ Ik vond Rosa super cool vertellen over super interessante dingen! Ik vind het le
     category: `weekly_nerd`,
     date: `09-04-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `## Theoretisch vs. praktisch toegankelijk
 
 Johann Huijkman is toegankelijkheidsexpert bij Q42. Zijn presentatie ging voornamelijk over het verschil van theoretisch toegankelijk en praktisch toegankelijk: een website kan aan alle regels voldoen maar toch niet bruikbaar zijn voor mensen met een beperking.
@@ -262,8 +250,6 @@ Testen was hieruit de grootste boodschap. Ik vond dat hij dit goed overbracht. J
     category: `weekly_nerd`,
     date: `20-04-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `## Het web als opgedrongen medium
 
 Het web is overal aanwezig en wordt je op een manier opgedrongen. Omdat het web zich zo snel ontwikkelt is het voor sommige mensen moeilijk bij te blijven ofwel te begrijpen. Terwijl het web juist een vriendelijke, toegankelijke plek zou moeten zijn waar mensen voor kunnen kiezen.
@@ -292,8 +278,6 @@ Ik vond de presentatie van Sanne Peters interessant. Ze leek heel zenuwachtig, w
     category: `weekly_nerd`,
     date: `28-05-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `
 ## Design systems
 
@@ -319,8 +303,6 @@ De grote vraag bij toegankelijkheid was hoe je het hoger op de prioriteitenlijst
     category: `weekly_nerd`,
     date: `04-06-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `
 ## De Voorhoede
 
@@ -343,8 +325,6 @@ Technisch komt er een hoop bij kijken. Service workers vormen een tussenlaag voo
     category: `weekly_nerd`,
     date: `21-05-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `
 ## Niks te verbergen?
 
@@ -371,8 +351,6 @@ Tot slot kwam Privacy by Design langs, met een verwijzing naar het boek Privacy 
     category: `weekly_nerd`,
     date: `10-06-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `
 ## Blind & loves AI
 
@@ -396,8 +374,6 @@ Het web dat zij wil is er dan ook één dat geen AI nodig heeft om te compensere
     category: `weekly_nerd`,
     date: `10-06-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `
 Een site is vrij makkelijk te kopiëren door anderen :(
 
@@ -419,8 +395,6 @@ HTML komt eerst. Er zijn ingebouwde manieren om informatie te tonen en te verber
     category: `weekly_nerd`,
     date: `10-06-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `
 ## Old web is friggin' awesome
 
@@ -447,8 +421,6 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     category: `leerdoelen_sprint0`,
     date: `12-05-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `Creatiever programmeren, plezier in het coderen.`,
   },
   {
@@ -457,8 +429,6 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     category: `leerdoelen_sprint0`,
     date: `12-05-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `Dus geen standaard nav bar + content.`,
   },
   {
@@ -467,8 +437,6 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     category: `leerdoelen_sprint0`,
     date: `12-05-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `Sneller ideeën schetsmatig uitwerken, zodat ik minder tijd kwijt ben aan doodlopende ideeën.`,
   },
   {
@@ -477,8 +445,6 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     category: `leerdoelen_meesterschap`,
     date: `23-06-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `Tijdens het blok ben ik vaak vergeten dat te doen tijdens het proces. Hierdoor heb ik dat minder accuraat kunnen opschrijven, konden de docenten mijn proces minder goed volgen en ben ik zelf minder bewust geworden wat ik heb bereikt tijdens een vak.`,
   },
   {
@@ -487,8 +453,6 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     category: `leerdoelen_meesterschap`,
     date: `23-06-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `Voornamelijk het uitstellen is een groot probleem. Als ik te veel tegelijk moet doen doe ik niks. Ik hoop het met to-do lijstjes overzichterlijker te houden.`,
   },
   {
@@ -497,8 +461,6 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     category: `leerdoelen_meesterschap`,
     date: `23-06-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `Ik zie wat er mogelijk is met JS en ik wil daar mee aan de slag kunnen zoals ik met CSS aan de slag kan.`,
   },
   {
@@ -507,8 +469,6 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     category: `leerdoelen_meesterschap`,
     date: `23-06-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `Het laatste blok is mij heel slecht gevallen en ik heb niet zo veel energie in de code kunnen steken als ik zou willen.`,
   },
   {
@@ -517,8 +477,6 @@ Het web is er voor iedereen. De joy, de whimsy, de vibes, dat is allemaal voor i
     category: `reflecties`,
     date: `13-05-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `
 ## Leerdoel 1: "Goed" in CSS worden
 
@@ -547,8 +505,6 @@ JavaScript blijft mijn grootste worsteling. Ik raak er snel door geïntimideerd 
     category: `reflecties`,
     date: `30-06-2026`,
     master_folder: `WD&D texts`,
-    iframeSrc: ``,
-    expandHref: ``,
     note: `
 Het laatste project van de minor. Ik mocht in een team voor een opdrachtgever, Marjolijn, een glossary website maken waarin elke term een eigen animatie kreeg. Ik was super enthousiast toen ik hoorde dat ik deze opdracht mocht doen, en bij de kickoff voelde het echt als kunst maken met code. Dat is precies de manier van coderen die ik het meest boeiend vind: nieuwe en unieke dingen maken in plaats van voor de tienduizendste keer dezelfde interface. Ik ben erg blij met het eindresultaat, en er is zelfs een stage bij Marjolijn uit voortgekomen.
 

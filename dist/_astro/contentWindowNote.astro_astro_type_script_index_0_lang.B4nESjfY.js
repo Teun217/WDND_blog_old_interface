@@ -1,0 +1,1 @@
+import{b as n,m as c}from"./windowUtils.B7StcVSA.js";document.querySelectorAll('section[data-component="content-window-note"]').forEach(e=>{const o=e.querySelector("h2"),t=e.querySelector(".close-btn");e.addEventListener("mousedown",()=>n(e)),t.addEventListener("click",()=>{e.style.display="none"}),c(e,o)});
