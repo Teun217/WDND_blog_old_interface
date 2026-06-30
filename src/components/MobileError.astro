@@ -171,29 +171,36 @@
         return window.innerWidth < MOBILE_THRESHOLD;
     }
 
+    function playErrorSound() {
+        new Audio('/assets/audio/WindowsXPErrorSound.mp3').play();
+    }
+
     function spawnExtra() {
         const overlay = document.getElementById('mobile-overlay')!;
         const main = document.getElementById('mobile-error-main')!;
         const padding = 20;
 
         for (let i = 0; i < 3; i++) {
-            const clone = main.cloneNode(true) as HTMLElement;
-            clone.removeAttribute('id');
-            clone.style.transform = '';
-            clone.style.left = `${padding + Math.random() * Math.max(0, window.innerWidth - 320)}px`;
-            clone.style.top = `${padding + Math.random() * Math.max(0, window.innerHeight - 200)}px`;
+            setTimeout(() => {
+                const clone = main.cloneNode(true) as HTMLElement;
+                clone.removeAttribute('id');
+                clone.style.transform = '';
+                clone.style.left = `${padding + Math.random() * Math.max(0, window.innerWidth - 320)}px`;
+                clone.style.top = `${padding + Math.random() * Math.max(0, window.innerHeight - 200)}px`;
 
-            clone.querySelector('.x-btn')!.addEventListener('click', (e) => {
-                e.stopPropagation();
-                clone.remove();
-            });
-            clone.querySelector('.ok-btn')!.addEventListener('click', (e) => {
-                e.stopPropagation();
-                spawnExtra();
-            });
-            clone.addEventListener('click', (e) => e.stopPropagation());
+                clone.querySelector('.x-btn')!.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    clone.remove();
+                });
+                clone.querySelector('.ok-btn')!.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    spawnExtra();
+                });
+                clone.addEventListener('click', (e) => e.stopPropagation());
 
-            overlay.appendChild(clone);
+                overlay.appendChild(clone);
+                playErrorSound();
+            }, i * 120);
         }
     }
 
@@ -201,6 +208,9 @@
     const main = document.getElementById('mobile-error-main')!;
 
     function show() {
+        if (!overlay.classList.contains('visible')) {
+            playErrorSound();
+        }
         overlay.classList.add('visible');
     }
 
